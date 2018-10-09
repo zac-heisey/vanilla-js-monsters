@@ -14,6 +14,9 @@ var monsters = [
 	'monster11.svg'
 ];
 
+// Get user's monster count
+var monsterCount = 0;
+
 // Get the app div
 var appContent = document.getElementById('app');
 
@@ -51,9 +54,11 @@ var shuffledMonsters = shuffle(monsters);
 var loadGame = function() {
   // Clear our appContent
   appContent.innerHTML = '';
+	// Reset monsterCount to 0
+	monsterCount = 0;
   // Render initial markup on game load
   for (var i = 0; i < shuffledMonsters.length; i++) {
-		monsterImage = '<img class="monster-img" src="/images/' + shuffledMonsters[i] + '" hidden>';
+		var monsterImage = '<img class="monster-img" src="/images/' + shuffledMonsters[i] + '" hidden>';
     appContent.innerHTML += '<div class="grid"><img class="door-img" src="/images/door.svg">' + monsterImage + '</div>';
   }
 }
