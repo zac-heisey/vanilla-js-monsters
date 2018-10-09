@@ -17,9 +17,6 @@ var monsters = [
 // Get the app div
 var appContent = document.getElementById('app');
 
-// Array to hold shuffled monsters
-var shuffledMonsters = [];
-
 /**
  * Randomly shuffle an array
  * https://stackoverflow.com/a/2450976/1293256
@@ -47,15 +44,29 @@ var shuffle = function (array) {
 
 };
 
+// Array to hold shuffled monsters
+var shuffledMonsters = shuffle(monsters);
+
 // Load game before we start playing
 var loadGame = function() {
   // Clear our appContent
   appContent.innerHTML = '';
-  // Render initial markup on game start
-  for (var i = 0; i < monsters.length; i++) {
-    appContent.innerHTML += '<div class="grid"><img src="/images/door.svg"></div>';
+  // Render initial markup on game load
+  for (var i = 0; i < shuffledMonsters.length; i++) {
+		monsterImage = '<img class="monster-img" src="/images/' + shuffledMonsters[i] + '" hidden>';
+    appContent.innerHTML += '<div class="grid"><img class="door-img" src="/images/door.svg">' + monsterImage + '</div>';
   }
+}
+
+// Playing the game
+var playGame = function(event) {
+	if (event.target.classList.contains('door-img')) {
+		event.target.setAttribute('hidden', true);
+		event.target.nextSibling.removeAttribute('hidden');
+	}
 }
 
 // Add event listener for window load -> Load game
 window.addEventListener('load', loadGame, false);
+// Listen for clicks once the game begins
+document.addEventListener('click', playGame, false);
