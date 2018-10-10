@@ -1,6 +1,6 @@
-// The monsters and socks
+// The monsters and sock
 var monsters = [
-	'sock!',
+	'socks.svg',
 	'monster1.svg',
 	'monster2.svg',
 	'monster3.svg',
