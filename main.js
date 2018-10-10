@@ -61,8 +61,8 @@ var loadGame = function() {
 	monsterCount = 0;
   // Render initial markup on game load
   for (var i = 0; i < shuffledMonsters.length; i++) {
-		var monsterImage = '<img class="monster-img" src="/images/' + shuffledMonsters[i] + '" hidden>';
-    appContent.innerHTML += '<div class="grid"><img class="door-img" src="/images/door.svg">' + monsterImage + '</div>';
+		var monsterImage = '<img class="monster-img" src="images/' + shuffledMonsters[i] + '" hidden>';
+    appContent.innerHTML += '<div class="grid"><img class="door-img" src="images/door.svg">' + monsterImage + '</div>';
   }
 }
 
@@ -74,7 +74,7 @@ var playGame = function(event) {
 		event.target.nextSibling.removeAttribute('hidden');
 	}
 	// If monster image is shown, add to monsterCount
-	if (event.target.nextSibling.src.includes('/images/monster')) {
+	if (event.target.nextSibling.src.includes('images/monster')) {
 		monsterCount++;
 		collectedMonsters.textContent = monsterCount;
 		// Show WIN message if user collects 11 monsters
