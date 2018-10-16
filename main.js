@@ -17,6 +17,9 @@ var monsters = [
 // Set user's monster count
 var monsterCount = 0;
 
+// Variable to hold shuffled monsters
+var shuffledMonsters;
+
 // Get user's collected monster count span field
 var collectedMonsters = document.querySelector('#collected-monsters');
 
@@ -50,15 +53,14 @@ var shuffle = function (array) {
 
 };
 
-// Array to hold shuffled monsters
-var shuffledMonsters = shuffle(monsters);
-
 // Load game before we start playing
 var loadGame = function() {
   // Clear our appContent
   appContent.innerHTML = '';
 	// Reset monsterCount to 0
 	monsterCount = 0;
+	// Array to hold shuffled monsters
+	shuffledMonsters = shuffle(monsters);
   // Render initial markup on game load
   for (var i = 0; i < shuffledMonsters.length; i++) {
 		var monsterImage = '<img class="monster-img" src="images/' + shuffledMonsters[i] + '" hidden>';
@@ -105,7 +107,7 @@ var playGame = function(event) {
 	}
 }
 
-// Add event listener for window load -> Load game
-window.addEventListener('load', loadGame, false);
+// Load game
+loadGame();
 // Listen for clicks once the game begins
 document.addEventListener('click', playGame, false);
