@@ -70,11 +70,11 @@ var loadGame = function() {
 
 // Playing the game
 var playGame = function(event) {
-	// If user clicks on a door, reveal a monster or socks
-	if (event.target.classList.contains('door-img')) {
-		event.target.setAttribute('hidden', true);
-		event.target.nextSibling.removeAttribute('hidden');
-	}
+	// Bail if click is not on a door image
+	if (!event.target.classList.contains('door-img')) return;
+	// When a user clicks on a door, hide the door image & reveal a monster or socks image
+	event.target.setAttribute('hidden', true);
+	event.target.nextSibling.removeAttribute('hidden');
 	// If monster image is shown, add to monsterCount
 	if (event.target.nextSibling.src.includes('images/monster')) {
 		monsterCount++;
