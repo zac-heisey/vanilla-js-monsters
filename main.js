@@ -63,8 +63,8 @@ var loadGame = function() {
 	shuffledMonsters = shuffle(monsters);
   // Render initial markup on game load
   for (var i = 0; i < shuffledMonsters.length; i++) {
-		var monsterImage = '<img class="monster-img" src="images/' + shuffledMonsters[i] + '" hidden>';
-    appContent.innerHTML += '<div class="grid"><img class="door-img" src="images/door.svg">' + monsterImage + '</div>';
+		var monsterImage = '<img class="monster-img" src="images/' + shuffledMonsters[i] + '" hidden></button>';
+    appContent.innerHTML += '<div class="grid"><button><img class="door-img" src="images/door.svg">' + monsterImage + '</div>';
   }
 }
 
